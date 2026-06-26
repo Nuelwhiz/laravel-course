@@ -42,8 +42,7 @@
                                 </li>
                             </ul>
                             <div class="text-lg mt-4">
-                                <i class="fa-solid fa-location-dot"></i> Boston,
-                                MA
+                                <i class="fa-solid fa-location-dot"></i>{{$listings->location}}
                             </div>
                         </div>
                     </div>
