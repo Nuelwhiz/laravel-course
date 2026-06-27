@@ -1,10 +1,9 @@
 @extends('layout')
 
 @section('content')
-    
-<div
-                class="lg:grid lg:grid-cols-2 gap-4 space-y-4 md:space-y-0 mx-4"
-            >
+  @include('partials._hero') 
+  @include('partials._search') 
+<div class="lg:grid lg:grid-cols-2 gap-4 space-y-4 md:space-y-0 mx-4">
 @foreach ($listing as $listings)
 
 <div class="bg-gray-50 border border-gray-200 rounded-xl p-6">
@@ -16,7 +15,9 @@
                         />
                         <div>
                             <h3 class="text-2xl">
-                                <a href="show.html">{{$listings->title}}</a>
+                                <a href="/listing/{{$listings->id}}">
+                                    {{$listings->title}}
+                                </a>
                             </h3>
                             <div class="text-xl font-bold mb-4">{{$listings->company}}</div>
                             <ul class="flex">
