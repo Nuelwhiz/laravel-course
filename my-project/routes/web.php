@@ -13,18 +13,14 @@ Route::get('/', function () {
         'listing'=>Listing::all()   
     ]);
 });
-//single listing
 
-Route::get('/listing/{id}', function($id){
-    return view('listings', [
-'listings' => Listing::find($id)
+
+//single listing
+Route::get('/listing/{listings}', function(Listing $listings){
+  return view('listings', [
+'listings' => $listings
     ]);
 });
-
-
-
-
-
 
 //intro
 Route::get('/hello', function (){
