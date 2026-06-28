@@ -1,6 +1,4 @@
-@extends('layout')
-
-@section('content')
+<x-layout>
 @include('partials._search')
 <a href="/" class="inline-block text-black ml-4 mb-4"
                 ><i class="fa-solid fa-arrow-left"></i> Back
@@ -71,4 +69,4 @@
  </div>
 {{-- <h2 >{{$listings['title']}}</h2>
 <p>{{$listings['discription']}}</p> --}}
-@endsection
+</x-layout>

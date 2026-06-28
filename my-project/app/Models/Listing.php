@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Listing extends Model
 {
     use HasFactory;
-
+/* 
     protected $fillable=[
         'title',
         'tags',
@@ -17,5 +17,9 @@ class Listing extends Model
         'email',
         'website',
         'description',
-    ];
-}
+    ]; */
+
+    public function scopFilter($query, array $filters)  {
+     dd($filters['tag']);  
+    }
+};
