@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Builder;
 
 class Listing extends Model
 {
@@ -19,7 +20,15 @@ class Listing extends Model
         'description',
     ]; */
 
-    public function scopFilter($query, array $filters)  {
-     dd($filters['tag']);  
+    public function scopeFilter(Builder $query, array $filters)  {
+    if($filters['tag'] ?? false){
+        $query->where('tags', 'like' , '%' . request('tag') . '%');
+    };
+    
+    if($filters['search'] ?? false){
+        $query->where('title', 'like' , '%' . request('search') . '%') 
+        ->orWhere('discription', 'like' , '%' . request('search') . '%')
+        ->orWhere('tags', 'like' , '%' . request('search') . '%');
+    }; 
     }
 };
