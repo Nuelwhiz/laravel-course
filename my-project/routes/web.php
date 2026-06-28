@@ -4,23 +4,17 @@ use App\Models\Listing;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Models\listings;
+use App\Http\Controllers\ListingController;
 
 
 //all listings
-Route::get('/', function () {
-    return view('listing', [
-        'heading' => 'latest listing',
-        'listing'=>Listing::all()   
-    ]);
-});
+Route::get('/', [ListingController::class, 'index']);
+   
+
 
 
 //single listing
-Route::get('/listing/{listings}', function(Listing $listings){
-  return view('listings', [
-'listings' => $listings
-    ]);
-});
+Route::get('/listing/{listings}', [ListingController::class, 'show']);
 
 //intro
 Route::get('/hello', function (){
