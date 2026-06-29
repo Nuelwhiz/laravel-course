@@ -10,7 +10,7 @@ class Listing extends Model
 {
     use HasFactory;
  
-    protected $fillable=[
+   /*  protected $fillable=[
         'title',
         'company',
         'location',
@@ -18,7 +18,7 @@ class Listing extends Model
         'email',
         'discription',
         'tags'
-    ]; 
+    ]; */ 
 
     public function scopeFilter(Builder $query, array $filters)  {
     if($filters['tag'] ?? false){
