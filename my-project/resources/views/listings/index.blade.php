@@ -46,9 +46,14 @@
                         </div>
                     </div>
                 </div>
+                
 {{-- <h2 ><a href="/listing/{{$listings['id']}}">{{$listings['title']}}</a></h2>
 <p>{{$listings['discription']}}</p> --}}
 @endforeach
+
             </x-layout>
+            <div class="w-full px-4 mt-6">
+                    {{$listing->links()}}
+                </div>
 
 

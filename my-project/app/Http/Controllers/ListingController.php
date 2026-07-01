@@ -14,9 +14,9 @@ class ListingController extends Controller
      */
     public function index( )
     {
-       // dd(request('tag'));
+       //dd(Listing::latest()->filter(request(['tag', 'search']))->get()   );
         return view('listings.index', [
-        'listing'=>Listing::latest()->filter(request(['tag', 'search']))->get()   
+        'listing'=>Listing::latest()->filter(request(['tag', 'search']))->simplePaginate(2)   
     ]);
     }
 
