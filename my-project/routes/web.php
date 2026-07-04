@@ -21,12 +21,13 @@ Route::get('/listing/{listings}', [ListingController::class, 'show']);
 
 //intro
 Route::get('/hello', function (){
-    return response ('<h1>hello world</h1>', 200)
+    return response ('<h1>hello world</h1>', 300)
     ->header('content-type', 'text/plain')
     ->header('foo', 'bar');
 });
 
 Route::get('/posts/{id}', function($id){
+    //dd($id);
     //ddd($id);
     return response('post ' . $id);
 })->where('id', '[0-9]+');
