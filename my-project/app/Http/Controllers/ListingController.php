@@ -48,6 +48,7 @@ class ListingController extends Controller
         Listing::create($formFields);
         return redirect('/')->with('message', 'Listing created successfully!');
 
+
     }
 
     /**
@@ -64,7 +65,9 @@ class ListingController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('listings.edit', [
+            'listing' => Listing::find($id)
+        ]);
     }
 
     /**
