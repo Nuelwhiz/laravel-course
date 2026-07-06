@@ -64,8 +64,12 @@
                                 >
                             </div>
                         </div>
+                         
                     </div>
+
+                     <div class="mt-7"><a href=""><i class="fa-solid fa-edit"></i>edit</a></div>
                 </div>
+              
  </div>
 {{-- <h2 >{{$listings['title']}}</h2>
 <p>{{$listings['discription']}}</p> --}}
