@@ -81,6 +81,24 @@ class ListingController extends Controller
     /**
      * Update the specified resource in storage.
      */
+    public function update(Request $request, Listing $listing)
+    {
+        $formFields = $request->validate([
+            'title' => 'required',
+            'company' => ['required'],
+            'location' => 'required',
+            'website' => 'required',
+            'email' => ['required', 'email'],
+            'tags' => 'required',
+            'discription' => 'required'
+        ]);       
+
+        if($request->hasFile('logo')){
+            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+        }
+        $listing->update($formFields);
+         return redirect('/')->with('message', 'Listing updated successfully!');
+    }
 
     
     /* public function update(Request $request, string $id)
