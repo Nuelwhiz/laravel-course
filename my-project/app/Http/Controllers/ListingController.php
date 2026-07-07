@@ -63,21 +63,30 @@ class ListingController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Listing $listings)
     {
-    
-        /* return view('listings.edit', [
-            'listing' => Listing::find($id)
-        ]); */
-    }
+        return view('listings.edit', [
+        "listing"=> $listings
+        ]); 
+    } 
+  /*  public function edit($id)
+    {
+        $listing = Listing::findOrFail($id);
+        return view('listings.edit', [
+            'listing'=>$listing
+        ]);
+    } */
+
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+
+    
+    /* public function update(Request $request, string $id)
     {
         //
-    }
+    } */
 
     /**
      * Remove the specified resource from storage.

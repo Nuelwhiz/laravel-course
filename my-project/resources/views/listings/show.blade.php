@@ -67,7 +67,8 @@
                          
                     </div>
 
-                     <div class="mt-7"><a href=""><i class="fa-solid fa-edit"></i>edit</a></div>
+                     <div class="mt-7"><i class="fa-solid fa-edit"></i>
+                        <a href="/listing/{{$listings->id}}/edit">edit</a></div>
                 </div>
               
  </div>

@@ -13,12 +13,16 @@ Route::get('/', [ListingController::class, 'index']);
 
 // create listing
 Route::get('/listings/create', [ListingController::class, 'create']);
+
 //store listing
 Route::post('/listings', [ListingController::class, 'store']);
-//single listing
 
 //edit listing
-Route::post('/listings/{listings}', [ListingController::class, 'edit']);
+//Route::get('/listing/{id}/edit', [ListingController::class, 'edit']);
+Route::get('/listing/{listings}/edit', [ListingController::class, 'edit']);
+
+//update listing
+Route::put('listing/{listings}', [ListingController::class, 'update']);
 
 //show listing
 Route::get('/listing/{listings}', [ListingController::class, 'show']);
