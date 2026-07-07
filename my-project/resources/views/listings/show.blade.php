@@ -67,8 +67,16 @@
                          
                     </div>
 
-                     <div class="mt-7"><i class="fa-solid fa-edit"></i>
-                        <a href="/listing/{{$listings->id}}/edit">edit</a></div>
+                     <div class="mt-7 flex gap-4"<i class="fa-solid fa-edit"></i>
+                        <a href="/listing/{{$listings->id}}/edit"><i class="fa-solid fa-edit"></i>edit</a>
+                    
+                    <form action="/listing/{{$listings->id}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class=" text-red-500  hover:opacity-80">
+                            <i class="fa-solid fa-trash"></i> Delete
+                        </button>
+                    </form>
                 </div>
               
  </div>
