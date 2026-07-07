@@ -97,7 +97,7 @@ class ListingController extends Controller
             $formFields['logo'] = $request->file('logo')->store('logos', 'public');
         }
         $listing->update($formFields);
-         return redirect('/')->with('message', 'Listing updated successfully!');
+         return back()->with('message', 'Listing updated successfully!');
     }
 
     

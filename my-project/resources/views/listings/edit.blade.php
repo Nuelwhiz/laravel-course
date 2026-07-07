@@ -155,9 +155,9 @@
                                 rows="10"
                                 placeholder="Include tasks, requirements, salary, etc"
                                 
-                                {{$listing->website}}
+                                
 
-                            ></textarea>
+                            >  {{$listing->discription}}</textarea>
                             @error('discription')
                             <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                             @enderror
@@ -167,7 +167,7 @@
                             <button
                                 class="bg-laravel text-white rounded py-2 px-4 hover:bg-black"
                             >
-                                Create Gig
+                                Edit Gig
                             </button>
 
                             <a href="/" class="text-black ml-4"> Back </a>
