@@ -100,17 +100,12 @@ class ListingController extends Controller
          return back()->with('message', 'Listing updated successfully!');
     }
 
-    
-    /* public function update(Request $request, string $id)
-    {
-        //
-    } */
-
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Listing $listings)
     {
-        //
+        $listings->delete();
+        return redirect('/')->with('message', 'Listing deleted successfully!');
     }
 }

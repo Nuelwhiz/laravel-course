@@ -28,6 +28,7 @@ Route::put('/listings/{listing}', [ListingController::class, 'update']);
 Route::get('/listing/{listings}', [ListingController::class, 'show']);
 
 //delete listing
+Route::delete('/listing/{listings}', [ListingController::class, 'destroy']);
 
 
 //intro
