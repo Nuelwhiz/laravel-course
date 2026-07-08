@@ -33,6 +33,12 @@ Route::delete('/listing/{listings}', [ListingController::class, 'destroy']);
 //create listing user
 Route::get('/register', [UserController::class, 'create']);
 
+//create user
+Route::post('/users', [UserController::class, 'store']);
+
+//logout
+Route::post('/logout', [UserController::class, 'logout']);
+
 
 //intro
 Route::get('/hello', function (){

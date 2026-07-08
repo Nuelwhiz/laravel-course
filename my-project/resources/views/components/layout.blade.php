@@ -33,6 +33,28 @@
                 ><img class="w-24" src="{{asset('images/logo.png')}}" alt="" class="logo"
             /></a>
             <ul class="flex space-x-6 mr-6 text-lg">
+                @auth
+                 <li>
+                    <span class="font-bold uppercase">
+
+                        welcome {{auth()->user()->name}}
+                    </span>
+                </li>
+                <li>
+                    <a href="/login" class="hover:text-laravel"
+                        ><i class="fa-solid fa-gear"></i>
+                        manage</a
+                    >
+                </li>
+
+                <form action="/logout" method="POST">
+                @csrf
+                <button type="submit"> <i class="fa-solid fa-door-closed"></i> logout</button>
+            
+            </form>
+
+@else
+
                 <li>
                     <a href="/register" class="hover:text-laravel"
                         ><i class="fa-solid fa-user-plus"></i> Register</a
@@ -44,6 +66,7 @@
                         Login</a
                     >
                 </li>
+                @endAuth
             </ul>
         </nav>
         <main >
