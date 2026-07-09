@@ -16,17 +16,19 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      */
-    public function run(): void
-    {
-         User::factory()-> count(5)->create(); 
+   public function run(): void
+{
+    // 1. Create the specific test user
+    $user = User::factory()->create([
+        'name' => 'Test User',
+        'email' => 'test@example.com',
+    ]);
 
-        /* User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
-
- */
-Listing::factory(6)->create();
+    // 2. Create 6 listings belonging to that specific user
+    Listing::factory(6)->create([
+        'user_id' => $user->id,
+    ]);
+}
        /*  Listing::create([
 'title'=>'laravel senior dev',
 'tags'=>'laravel javascript',
@@ -51,4 +53,4 @@ Listing::factory(6)->create();
   screenwriters, TV shows, and blockbusters.',
         ]); */
     }
-}
+
