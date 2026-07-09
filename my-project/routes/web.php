@@ -30,14 +30,21 @@ Route::get('/listing/{listings}', [ListingController::class, 'show']);
 //delete listing
 Route::delete('/listing/{listings}', [ListingController::class, 'destroy']);
 
-//create listing user
+//show register and create form
 Route::get('/register', [UserController::class, 'create']);
 
-//create user
+//create new user
 Route::post('/users', [UserController::class, 'store']);
 
 //logout
 Route::post('/logout', [UserController::class, 'logout']);
+
+//login form
+Route::get('/login', [UserController::class, 'login'])->name('login');
+
+//login user
+
+Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
 
 //intro

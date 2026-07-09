@@ -33,11 +33,11 @@
                 ><img class="w-24" src="{{asset('images/logo.png')}}" alt="" class="logo"
             /></a>
             <ul class="flex space-x-6 mr-6 text-lg">
-                @auth
+                @Auth
                  <li>
                     <span class="font-bold uppercase">
 
-                        welcome {{auth()->user()->name}}
+                        welcome {{Auth::user()->name}}
                     </span>
                 </li>
                 <li>
