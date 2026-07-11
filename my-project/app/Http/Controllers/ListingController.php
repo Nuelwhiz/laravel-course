@@ -34,6 +34,9 @@ class ListingController extends Controller
      */
     public function store(Request $request)
     {
+
+    
+
         $formFields = $request->validate([
             'title' => 'required',
             'company' => ['required', Rule::unique('listings', 'company')],
@@ -87,6 +90,11 @@ class ListingController extends Controller
      */
     public function update(Request $request, Listing $listing)
     {
+
+    //make sure logged in user is owner of listing
+    if($listing->user_id != Auth::id()){
+        abort(403, 'Unauthorized Action');
+    }
         $formFields = $request->validate([
             'title' => 'required',
             'company' => ['required'],
@@ -109,11 +117,16 @@ class ListingController extends Controller
      */
     public function destroy(Listing $listings)
     {
+        //make sure logged in user is owner of listing
+    if($listings->user_id != Auth::id()){
+        abort(403, 'Unauthorized Action');
+    }
+
         $listings->delete();
         return redirect('/')->with('message', 'Listing deleted successfully!');
     }
 
     public function manage() {
-        return view('listings.manage', ['listings' => Auth::user()->listing()->get()]);
+        return view('listings.manage', ['listings' => Auth::user()->listings()->get()]);
     }
 }

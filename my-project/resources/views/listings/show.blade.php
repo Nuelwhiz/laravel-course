@@ -67,7 +67,7 @@
                          
                     </div>
 
-                     <div class="mt-7 flex gap-4"<i class="fa-solid fa-edit"></i>
+                     {{-- <div class="mt-7 flex gap-4"<i class="fa-solid fa-edit"></i>
                         <a href="/listing/{{$listings->id}}/edit"><i class="fa-solid fa-edit"></i>edit</a>
                     
                     <form action="/listing/{{$listings->id}}" method="POST">
@@ -77,7 +77,7 @@
                             <i class="fa-solid fa-trash"></i> Delete
                         </button>
                     </form>
-                </div>
+                </div> --}}
               
  </div>
 {{-- <h2 >{{$listings['title']}}</h2>
