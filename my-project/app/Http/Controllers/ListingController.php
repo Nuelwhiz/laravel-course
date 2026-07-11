@@ -48,7 +48,7 @@ class ListingController extends Controller
         }
 
         $formFields['user_id'] = Auth::id();
-        
+
         Listing::create($formFields);
         return redirect('/')->with('message', 'Listing created successfully!');
 
@@ -111,5 +111,9 @@ class ListingController extends Controller
     {
         $listings->delete();
         return redirect('/')->with('message', 'Listing deleted successfully!');
+    }
+
+    public function manage() {
+        return view('listings.manage', ['listings' => Auth::user()->listing()->get()]);
     }
 }
