@@ -10,9 +10,8 @@ use Illuminate\Support\Facades\Auth;
 
 class ListingController extends Controller
 {
-    /**
-     * Display all listing of the resource.
-     */
+    // Display all listing of the resource.
+    
     public function index( )
     {
        //dd(Listing::latest()->filter(request(['tag', 'search']))->get()   );
@@ -21,22 +20,15 @@ class ListingController extends Controller
     ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    // Show the form for creating a new resource.
     public function create()
     {
         return view('listings.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    // Store a newly created resource in storage.
     public function store(Request $request)
     {
-
-    
-
         $formFields = $request->validate([
             'title' => 'required',
             'company' => ['required', Rule::unique('listings', 'company')],
@@ -58,18 +50,15 @@ class ListingController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     */
+    // Display the specified resource.
+    
     public function show(Listing $listings){
  return view('listings.show', [
 'listings' => $listings
     ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    // Show the form for editing the specified resource.
     public function edit(Listing $listings)
     {
         return view('listings.edit', [
@@ -85,9 +74,8 @@ class ListingController extends Controller
     } */
 
 
-    /**
-     * Update the specified resource in storage.
-     */
+    // Update the specified resource in storage.
+    
     public function update(Request $request, Listing $listing)
     {
 
@@ -112,20 +100,19 @@ class ListingController extends Controller
          return back()->with('message', 'Listing updated successfully!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+    // delet the specified resource from storage.
+    
     public function destroy(Listing $listings)
     {
         //make sure logged in user is owner of listing
     if($listings->user_id != Auth::id()){
         abort(403, 'Unauthorized Action');
     }
-
         $listings->delete();
         return redirect('/')->with('message', 'Listing deleted successfully!');
     }
 
+// manage function to manage listings of the logged in user
     public function manage() {
         return view('listings.manage', ['listings' => Auth::user()->listings()->get()]);
     }
