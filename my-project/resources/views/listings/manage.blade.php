@@ -4,6 +4,7 @@
     
                 <div class="bg-gray-50 border border-gray-200 p-10 rounded">
                     <header>
+                       
                         <h1
                             class="text-3xl text-center font-bold my-6 uppercase"
                         >
@@ -60,6 +61,11 @@
                                 class="px-4 py-8 border-t border-b border-gray-300 text-lg"
                             >
                                 <p class="text-center">No Listings Found</p>
+                                 <a href="/listings/create" 
+                                 class="text-blue-500 hover:text-blue-700
+                                  mx-auto flex items-center pt-4 justify-center gap-1">
+                            <i class="fa-solid fa-plus"></i> Create Listing
+                        </a>
                             </td>
                         </tr>
                         @endunless
